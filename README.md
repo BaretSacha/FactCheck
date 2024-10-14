@@ -27,7 +27,7 @@ Assurez-vous d'avoir installé [Node.js](https://nodejs.org/) et [npm](https://w
 ### Cloner le Dépôt
 
 ```bash
-git clone https://github.com/votre_nom_utilisateur/fact-check-site.git
+git clone https://github.com/BaretSacha/fact-check-site.git
 ```
 
 ### Installer les Dépendances
@@ -103,6 +103,6 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'i
 1. **Copiez le contenu ci-dessus**.
 2. **Créez un fichier** nommé `README.md` à la racine de votre projet si ce n'est pas déjà fait.
 3. **Collez le contenu** dans le fichier `README.md`.
-4. **Personnalisez les informations** : Remplacez `votre_nom_utilisateur` par votre nom d'utilisateur GitHub.
+4. **Personnalisez les informations** : Remplacez `BaretSacha` par votre nom d'utilisateur GitHub.
 
 
