@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const API_KEY = 'AIzaSyB1lz0eog42IEf7oTVfPIt6SSKvC4LC31w'; // clé API
+const API_KEY = 'AIzaSyB1lz0eog42IEf7oTVfPIt6SSKvC4LC31w'; // Remplacez par votre clé API
 
 app.use(cors());
 
