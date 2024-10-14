@@ -27,7 +27,7 @@ Assurez-vous d'avoir installé [Node.js](https://nodejs.org/) et [npm](https://w
 ### Cloner le Dépôt
 
 ```bash
-git clone https://github.com/BaretSacha/fact-check-site.git
+git clone https://github.com/BaretSacha/factcheck.git
 ```
 
 ### Installer les Dépendances
