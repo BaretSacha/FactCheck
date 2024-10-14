@@ -1,4 +1,3 @@
-Voici le contenu complet du fichier `README.md` que vous pouvez copier-coller directement :
 
 # Fact-Check Site
 
@@ -106,4 +105,4 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'i
 3. **Collez le contenu** dans le fichier `README.md`.
 4. **Personnalisez les informations** : Remplacez `votre_nom_utilisateur` par votre nom d'utilisateur GitHub.
 
-Si vous avez besoin de modifications ou d'ajouts spécifiques, n'hésitez pas à me le faire savoir !
+
