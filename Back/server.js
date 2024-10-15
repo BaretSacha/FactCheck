@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const API_KEY = 'AIzaSyB1lz0eog42IEf7oTVfPIt6SSKvC4LC31w'; // Remplacez par votre clé API
+const API_KEY = 'AIzaSyB1lz0eog42IEf7oTVfPIt6SSKvC4LC31w';
 
 app.use(cors());
 
@@ -16,10 +16,11 @@ app.get('/fact-check', async (req, res) => {
         const response = await axios.get(url);
         res.json(response.data);
     } catch (error) {
-        res.status(500).json({ error: 'Une erreur est survenue.' });
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des données.' });
     }
 });
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
