@@ -10,7 +10,7 @@ app.use(cors());
 
 app.get('/fact-check', async (req, res) => {
     const query = req.query.query;
-    const url = `https://factchecktools.googleapis.com/v1alpha1/claims:search?query=${query}&key=${API_KEY}`;
+    const url = `https://factchecktools.googleapis.com/v1alpha1/claims:search?query=${query}&key=${API_KEY}&hl=fr`;
 
     try {
         const response = await axios.get(url);
