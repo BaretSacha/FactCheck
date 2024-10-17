@@ -1,0 +1,27 @@
+.home {
+    text-align: center;
+  }
+
+  .header {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230630/pngtree-breaking-news-template-for-tv-or-podcast-exploring-the-intersection-of-image_3705378.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 10vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .hero {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px;
+    border-radius: 10px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin: 0;
+  }
+  

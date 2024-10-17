@@ -1,0 +1,421 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #f04e23;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav button:hover {
+  background-color: #1e7eaf;
+}
+
+.search-form {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.search-input {
+  width: calc(100% - 100px);
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f04e23;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #d4411a;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.results-container {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+}
+
+.result-item {
+  margin-bottom: 20px;
+}
+
+.result-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
+
+.rating {
+  font-weight: bold;
+  color: #333;
+}
+
+.history-container {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.history-table th {
+  background-color: #f04e23;
+  color: white;
+}
+
+.history-table td a {
+  color: #f04e23;
+  text-decoration: none;
+}
+
+.history-table td a:hover {
+  text-decoration: underline;
+}
+
+
+/* Header Styles */
+header {
+    background-color: #f04e23; /* Couleur de fond orange */
+    padding: 10px 20px; /* Espacement autour du texte */
+    display: flex;
+    align-items: center; /* Alignement vertical */
+    justify-content: space-between; /* Espacement entre les éléments */
+    color: white; /* Couleur du texte */
+    font-family: 'Arial', sans-serif; /* Police de caractères */
+}
+
+header h1 {
+    margin: 0; /* Supprime la marge par défaut */
+    font-size: 24px; /* Taille de police */
+    text-align: center; /* Centrer le texte */
+    flex-grow: 1; /* Permet au titre de prendre l'espace disponible */
+}
+
+/* Navigation Styles */
+nav {
+    position: relative; /* Positionnement pour le menu déroulant */
+}
+
+/* Button Styles */
+.menu-button {
+    background-color: #2179a8; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    padding: 10px 15px; /* Espacement interne */
+    cursor: pointer; /* Curseur pointeur sur hover */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+.menu-button:hover {
+    background-color: #d4411a; /* Couleur de fond au hover */
+}
+
+/* Dropdown Styles */
+.dropdown {
+    display: inline-block; /* Affichage en ligne */
+    position: relative; /* Positionnement relatif pour le contenu */
+}
+
+.dropdown-content {
+    display: none; /* Cacher le contenu par défaut */
+    position: absolute; /* Positionnement absolu pour le menu */
+    background-color: white; /* Couleur de fond du menu */
+    color: #f04e23; /* Couleur du texte du menu */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre autour du menu */
+    z-index: 1000; /* Position au-dessus des autres éléments */
+    border-radius: 5px; /* Coins arrondis */
+    margin-top: 5px; /* Espacement au-dessus du menu */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Afficher le contenu lors du hover sur le menu */
+}
+
+.dropdown-content a {
+    padding: 10px; /* Espacement interne des liens */
+    text-decoration: none; /* Pas de soulignement */
+    display: block; /* Chaque lien occupe une ligne complète */
+    color: #f04e23; /* Couleur du texte */
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0; /* Couleur de fond au hover */
+}
+
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #222222;
+}
+
+/* Header Styles */
+header {
+    background-color: #f04e23; /* Couleur de fond orange */
+    padding: 10px 20px; /* Espacement autour du texte */
+    display: flex;
+    align-items: center; /* Alignement vertical */
+    justify-content: space-between; /* Espacement entre le titre et le menu */
+    color: white; /* Couleur du texte */
+}
+
+/* Titre */
+header h1 {
+    margin: 0; /* Supprime la marge par défaut */
+    font-size: 24px; /* Taille de police */
+    text-align: center; /* Centrer le texte */
+    flex-grow: 1; /* Permet au titre de prendre l'espace disponible */
+}
+
+/* Dropdown */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dd-button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #f04e23; /* Couleur du texte du bouton */
+}
+
+.dd-button:hover {
+  background-color: #eeeeee;
+}
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  list-style-type: none;
+  z-index: 1000; /* Assurez-vous qu'il se superpose à d'autres éléments */
+}
+
+.dd-input + .dd-menu {
+  display: none;
+}
+
+.dd-input:checked + .dd-menu {
+  display: block;
+}
+
+.dd-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #f04e23; /* Couleur du texte des éléments du menu */
+}
+
+.dd-menu li:hover {
+  background-color: #f6f6f6;
+}
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+nav button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #f04e23;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav button:hover {
+  background-color: #d4411a;
+}
+
+.search-form {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.search-input {
+  width: calc(100% - 100px);
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f04e23;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #d4411a;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.results-container {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+}
+
+.result-item {
+  margin-bottom: 20px;
+}
+
+.result-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
+
+.rating {
+  font-weight: bold;
+  color: #333;
+}
+
+.history-container {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.history-table th {
+  background-color: #f04e23;
+  color: white;
+}
+
+.history-table td a {
+  color: #f04e23;
+  text-decoration: none;
+}
+
+.history-table td a:hover {
+  text-decoration: underline;
+}
+
+.reset-button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #f04e23;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #d4411a;
+}
+
