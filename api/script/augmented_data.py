@@ -1,43 +1,20 @@
 import openai
-from openai import OpenAI
 import json
 import logging
 import pandas as pd
-import math 
+# api_key =""
+# client = OpenAI(api_key=api_key)
 
 # Configuration de logging
 logging.basicConfig(level=logging.INFO)
 
-# Configuration de base
-api_key = 'sehukEOQslfqlfb_FomT3BlbkFJsflaYTcvlsdbfa_pJCQWZETr_ymi8o4Wqslfq1faRQtm4Y5gA'
-client = OpenAI(api_key=api_key)
-
-# Données de base
-import openai
-import json
-import logging
-import pandas as pd
-
-# Configuration de logging
-logging.basicConfig(level=logging.INFO)
-
-
-# Texte et étiquettes de base
-texts = [
-    "La réforme des retraites avance au parlement",
-    "Nouvelle découverte scientifique",
-    "Le gouvernement discute de nouvelles lois au parlement",
-    "Une avancée dans le domaine de l'astrophysique a été faite récemment",
-    "Un débat politique majeur sur l'éducation a eu lieu",
-    "Des scientifiques annoncent une percée dans les traitements médicaux"
-]
-labels = ["politique", "normal", "politique", "normal", "politique", "normal"]
 
 # Fonction pour générer les variantes
-def generate_variants_with_gpt(row, num_variants=5):
+def generate_variants_with_gpt(row, client, num_variants=5):
     text = row['text']
     label = row['label']
     augmented_texts = []
+    generated_texts = set()  # Pour suivre les variantes uniques
 
     for _ in range(num_variants):
         try:
@@ -45,37 +22,51 @@ def generate_variants_with_gpt(row, num_variants=5):
             response = client.chat.completions.create(
                 model="gpt-4",
                 messages=[
-                    {"role": "system", "content": "You are a text variation assistant helping to generate distinct rephrased sentences."},
-                    {"role": "user", "content": f"Générez une phrase similaire en changeant le vocabulaire et la structure pour la phrase suivante : '{text}'"}
+                    {"role": "system", "content": "You are a creative assistant helping to generate unique sentences inspired by given statements."},
+                    {"role": "user", "content": f"Générez une phrase inspirée, avec des variations dans les détails et la structure, pour la phrase suivante : '{text}'"}
                 ],
-                max_tokens=200,
-                temperature=0.8,  # Augmentation de la variabilité
-                top_p=0.9  # Utilisation de nucleus sampling pour plus de diversité
+                max_tokens=100,
+                temperature=0.7
             )
 
             # Récupérer le texte de la variante
             response_text = response.choices[0].message.content.strip()
-            augmented_texts.append({"text": response_text, "label": label})
-            logging.info(f"Variant generated: {response_text}")
 
-        except openai.error.OpenAIError as e:
+            # Vérifier l'unicité de la variante
+            if response_text not in generated_texts:
+                augmented_texts.append({"text": response_text, "label": label})
+                generated_texts.add(response_text)
+                logging.info(f"Variant generated: {response_text}")
+            else:
+                logging.info(f"Duplicated variant ignored: {response_text}")
+
+        except openai.OpenAIError as e:
             logging.error(f"Erreur lors de la génération de variante pour la ligne '{row.name}' : {e}")
             augmented_texts.append({"text": text, "label": label})  # Utiliser le texte d'origine en cas d'erreur
-
+            
     return augmented_texts
 
-# Création d'un DataFrame initial
-data = pd.DataFrame({'text': texts, 'label': labels})
 
-# Accumulateur pour les variantes générées
-all_variants = []
-required_variants = math.ceil(1000 / len(data))
+# Chargement de données initiales
+data = [
+    {"text": "Les nouvelles lois sur la protection des données personnelles ont été approuvées.", "label": "politique"},
+    {"text": "Les scientifiques ont trouvé une nouvelle espèce dans la forêt amazonienne.", "label": "non politique"},
+    {"text": "Le gouvernement propose de nouvelles réformes fiscales.", "label": "politique"},
+    {"text": "Une équipe de chercheurs découvre un lien entre nutrition et santé mentale.", "label": "non politique"},
+    # Ajoutez d'autres lignes de base ici pour diversifier les sujets
+]
+
+# Conversion des données en DataFrame
+df = pd.DataFrame(data)
 
 # Générer les variantes pour chaque ligne
-for index, row in data.iterrows():
-    variants = generate_variants_with_gpt(row, num_variants=required_variants)
+all_variants = []
+for index, row in df.iterrows():
+    variants = generate_variants_with_gpt(row, client, num_variants=20)  # Générer plus de variantes si besoin
     all_variants.extend(variants)
 
-# Limiter à 1000 lignes et sauvegarder dans un fichier JSON
-with open('variantes_enrichies.json', 'w', encoding='utf-8') as json_file:
-    json.dump(all_variants[:1000], json_file, ensure_ascii=False, indent=4)
+# Sauvegarde du JSON final
+with open('data_variants_enrichis.json', 'w', encoding='utf-8') as f:
+    json.dump(all_variants, f, ensure_ascii=False, indent=2)
+
+logging.info("Génération complète et fichier JSON sauvegardé.")

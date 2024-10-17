@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 import joblib
 
 # Charger les données
-with open('variantes_enrichies.json', 'r', encoding='utf-8') as file:
+with open('data_variants_enrichis.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 # Vérifier et extraire les textes et les labels
